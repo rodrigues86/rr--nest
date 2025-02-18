@@ -2,7 +2,7 @@
   "name": "rr--nest",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "RR",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -20,11 +20,21 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.749.0",
+    "@aws-sdk/lib-dynamodb": "^3.749.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/event-emitter": "^3.0.0",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/typeorm": "^11.0.0",
+    "@rodrigues86/nestjs-auto-sns-producer": "^1.0.0",
+    "aws-sdk": "^2.1692.0",
+    "dotenv": "^16.4.7",
+    "ksuid": "^3.0.0",
+    "mongodb": "^5.9.2",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
