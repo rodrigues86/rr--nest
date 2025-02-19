@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './user.model';
 import { EventEmitter2 } from '@nestjs/event-emitter';
@@ -21,6 +19,12 @@ export class UserService {
     return result;
   }
 
+  async patch(userId: string, patchUser: User): Promise<User | null> {
+    const result = await this.repository.update(userId, patchUser);
+    this.eventEmitter.emit(UserService.USER_PATCHED_EVENT, result);
+    return result;
+  }
+
   async get(userId: string): Promise<User> {
     const result = await this.repository.get(userId);
 
@@ -28,6 +32,12 @@ export class UserService {
       throw new NotFoundException(`User ${userId} not found`);
     }
     return result;
+  }
+
+  async getAll(): Promise<User[]> {
+    const result = await this.repository.getAll();
+
+    return result || [];
   }
 
   async delete(userId: string): Promise<void> {

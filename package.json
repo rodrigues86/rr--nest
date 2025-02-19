@@ -27,7 +27,7 @@
     "@nestjs/event-emitter": "^3.0.0",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/typeorm": "^11.0.0",
-    "@rodrigues86/nestjs-auto-sns-producer": "^1.0.0",
+    "@rodrigues86/nestjs-auto-sns-producer": "^1.0.3",
     "aws-sdk": "^2.1692.0",
     "dotenv": "^16.4.7",
     "ksuid": "^3.0.0",

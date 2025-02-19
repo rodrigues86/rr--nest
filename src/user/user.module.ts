@@ -11,12 +11,20 @@ import { AutoSNSProducer } from '@rodrigues86/nestjs-auto-sns-producer';
   providers: [
     UserService,
     UserRepository,
-    EventEmitter2,
     SNS,
     AutoSNSProducer.register({
       eventName: UserService.USER_CREATED_EVENT,
       topicArn: process.env.RR__USER_CREATED_EVENT__SNS_TOPIC_ARN || '',
     }),
+    AutoSNSProducer.register({
+      eventName: UserService.USER_DELETED_EVENT,
+      topicArn: process.env.RR__USER_CREATED_EVENT__SNS_TOPIC_ARN || '',
+    }),
+    AutoSNSProducer.register({
+      eventName: UserService.USER_PATCHED_EVENT,
+      topicArn: process.env.RR__USER_CREATED_EVENT__SNS_TOPIC_ARN || '',
+    }),
+    EventEmitter2,
   ],
 })
 export class UserModule {}
